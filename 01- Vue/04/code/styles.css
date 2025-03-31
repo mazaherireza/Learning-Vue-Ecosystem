@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Color Pallete */
+:root {
+  --c-900: #110507;
+  --c-800: #230a0d;
+  --c-700: #340e14;
+  --c-600: #46131a;
+  --c-500: #571821;
+  --c-400: #682f37;
+  --c-300: #895d64;
+  --c-200: #ab8c90;
+  --c-100: #ddd1d3;
+  --c-50: #eee8e9;
+  --a-200: #e86894;
+  --a-300: #ea427e;
+  --a-400: #e91e63;
+  --a-500: #d9064e;
+}
+
+body {
+  background-color: var(--c-50);
+}
+
+#app {
+  padding: 2em 1em;
+}
+
+p {
+  font-weight: bold;
+}
