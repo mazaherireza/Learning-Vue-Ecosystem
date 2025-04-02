@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Learning Vue</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="visibility = !visibility">
+        <span v-if="visibility">Hide</span>
+        <span v-else>Show</span>
+        Photo
+      </button>
+      <figure v-show="visibility">
+        <img :src="imgPath" :alt="altText" />
+        <figcaption>{{ location }} - {{ altText }}.</figcaption>
+      </figure>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
