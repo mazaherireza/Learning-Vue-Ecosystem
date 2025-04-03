@@ -1,0 +1,19 @@
+LogRocket
+_________
+
+How are computed properties used in Vue.js?
+
+Filtering data
+Calculations
+Boolean conditionals within the v-if 
+Using computed properties with mapGetters
+Using computed properties as setters (unorthodox)
+
+Computed properties cache results, meaning a computed property only executes once after the component
+is mounted except for any of its dependency changes. A method, meanwhile, executes every time
+that method is called in the component.
+
+... they allow you to read and write cleaner, scalable, and more readable code.
+
+
+
