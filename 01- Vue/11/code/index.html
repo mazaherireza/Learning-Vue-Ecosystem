@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Learning Vue</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <form>
+        <label for="name">Enter your name:</label>
+        <br />
+        <input type="text" id="name" v-model="formData.name" />
+        <br />
+        <label for="message">Leave a message:</label>
+        <br />
+        <textarea id="message" v-model="formData.message"></textarea>
+
+        <button type="submit" @click.prevent="formSubmitted">Submit</button>
+      </form>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
