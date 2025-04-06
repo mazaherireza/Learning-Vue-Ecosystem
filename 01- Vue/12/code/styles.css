@@ -1,0 +1,83 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Color Pallete */
+:root {
+  --c-900: #110507;
+  --c-800: #230a0d;
+  --c-700: #340e14;
+  --c-600: #46131a;
+  --c-500: #571821;
+  --c-400: #682f37;
+  --c-300: #895d64;
+  --c-200: #ab8c90;
+  --c-100: #ddd1d3;
+  --c-50: #eee8e9;
+  --a-200: #e86894;
+  --a-300: #ea427e;
+  --a-400: #e91e63;
+  --a-500: #d9064e;
+  --p-900: #03045e;
+  --p-800: #023e8a;
+  --p-700: #0077b6;
+  --p-600: #0096c7;
+  --p-500: #00b4d8;
+  --p-400: #48cae4;
+  --p-300: #90e0ef;
+  --p-200: #ade8f4;
+  --p-100: #caf0f8;
+}
+
+body {
+  background-color: var(--c-50);
+}
+
+#app {
+  padding: 2em 1em;
+}
+
+label,
+p {
+  font-weight: bold;
+  color: var(--p-900);
+}
+
+p {
+  margin-bottom: 0.5em;
+}
+
+button {
+  display: block;
+  padding: 0.5em;
+  border: 1px solid var(--p-900);
+  border-radius: 0.5em;
+  font-weight: bold;
+  color: var(--p-900);
+  cursor: pointer;
+}
+
+input[type="text"],
+textarea {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0.5rem;
+  border-radius: 0.5em;
+  border: 1px solid var(--p-800);
+  width: 300px;
+  font-weight: bold;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid var(--p-900);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: var(--c-800);
+  margin-right: 0.5em;
+}
