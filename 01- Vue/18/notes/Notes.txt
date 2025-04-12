@@ -1,0 +1,13 @@
+npm install -D less
+_______________________________
+Auto Format in VSCode
+
+Prettier - Code formatter
+
+Setting 
+Type "Formatter"
+
+Editor: Default Formatter (Also modified elsewhere)
+Select <----------
+
+Editor: Format on Save
