@@ -1,0 +1,45 @@
+Provide/Inject is a way to share data as an alternative to passing data using props.
+
+If we use provide/inject instead of props, we only need to define the provided data where it is provided, 
+and we only need to define the injected data where it is injected.
+
+...
+provide() {
+  return {
+    foods
+  }
+}
+
+-------------------
+
+inject: ['foods']
+_____________________________________
+
+In Vue we use props to pass data between components.
+
+However, in more complex applications, we may need to pass data across multiple layers to a lower level component. 
+In such cases, components pass certain props down without needing them themselves. 
+This pattern is known as prop drilling.
+
+...
+These problems can be bypassed by the two methods provide and inject.
+
+... no matter how deep it is. Completely without prop drilling.
+
+https://vuedose.tips/the-new-provide-inject-in-vue-3
+----------------------
+import { provide } from 'vue'
+
+provide('count', 1001) <-------- key, value
+
+------------------------------
+import { inject } from 'vue'
+
+const count = inject('count') // inject(key)
+
+Immutability
+-----------
+...
+The provided data should always be protected from direct manipulation to ensure traceability and a 
+consistent data flow.
+For this we use the readonly function.
