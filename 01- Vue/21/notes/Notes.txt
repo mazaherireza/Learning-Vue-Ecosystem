@@ -1,0 +1,98 @@
+We use slots in Vue to send content from the parent into the <template> of a child component.
+
+The <slot> tag acts as a placeholder for the content, 
+so that after the application is built the <slot> will be replaced by the content sent to it.
+________________________________________________________________
+
+https://blog.logrocket.com/understanding-slots-vue-js/
+
+Understanding slots in Vue.js:
+Types, benefits, use cases
+
+... to create reusable and flexible components.
+... how to apply Vue slots in your applications.
+
+... slots are a way to pass CONTENT to a component.
+
+What problem do Vue slots solve? <--------------------------------------------- *
+... allow a component to accept DYNAMIC CONTENT - slot content
+and render it in a specific location whithin the component's template - slot outlet
+This location is specified with the <slot> element.
+
+... enabling users to add custom content to a Vue component's layout and making it more flexible and reusable.
+
+... slots are not limited to text - they can also include multiple elements and other components.
+
+The <slot> element is where the parent component can insert content. <---------- *
+
+Specifying fallback content for Vue.js slots
+
+Fallback content refers to the content that is displayed in a slot if there is no content provided for that slot.
+
+Working with multiple and named slots
+
+Named slots allow you to specify a name for a slot, 
+then use that name in the parent component to indicate which slot, the content should be inserted into.
+
+Using dynamic slot names in Vue.js <------------------------ *
+
+... pass a dynamic value as the name of a slot.
+This is useful when you want to dynamically decide which slot content to render based on a condition.
+
+<Comp>
+  <template #[currentSlot]>
+    <p>This is the {{ currentSlot }} content.</p>
+  </template>
+</Comp>
+
+..., such as a card, that needs to display different content based on the context in which it is used ...
+
+However, you may also need to have different types of cards with different structures,
+such as a card with an image, a card with a list, and so on.
+To do this, you could use dynamic slot names instead of the default slot:
+
+Now, when you use the ..., 
+you can dynamically assign the slot name based on the type of card you want to display:
+
+Using scoped slots in Vue.js
+----------------------------
+
+Scoped slots provide a way to pass data from the child component to the parent component.
+... scoped slots allow the child component to pass data back to the parent component,
+which can then use that data to render the content in the slot.
+
+<template>
+  <div>
+    <p>...</p>
+    <slot :item="item"></slot>
+  </div>
+</template>
+<script>
+...
+const props = defineProps({ item: Object})
+
+..., the child component has a single scoped slot that expects to receive an item object.
+
+The parent component can then use the data passed by the child component 
+to render the content in the slot:
+
+...
+<Comp v-for="item in items" :key="item.id" :item="item">
+  <template #={ item }>
+    <p>{{ item.name }}</p>
+    <p>{{ item.description }}</p>
+  </template>
+</Comp>
+
+The parent component is also using the v-slot directive to access the data passed by the child component
+and render the content in the slot.
+_________________________________________________________
+
+Scoped Slots
+------------
+... let you pass data/methods from the child component, back into the parent.
+It's really useful for list rendering, ...
+
+Dynamic scoped slots
+--------------------
+... are much like regular scoped slots, but they have a name derived at runtime.
