@@ -1,0 +1,23 @@
+Virtual DOM
+-----------
+
+DOM (Document Object Model)
+---------------------------
+
+                        Document
+                          HTML
+
+  head                                           body   
+  .
+  .
+  .
+
+In real applications ... search and update
+
+Virtual DOM (VDOM) <--------- Is a lightweight JS representation of the DOM
+------------------
+
+The VDOM is a programming concept where an ideal, or "virtual", 
+representation of a UI is kept in memory and synced with the "real" DOM by a library such as ReactDOM.
+
+... Updating the virtual DOM is comparatively faster than updating the actual DOM.
