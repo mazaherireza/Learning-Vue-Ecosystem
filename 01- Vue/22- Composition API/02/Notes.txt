@@ -1,0 +1,127 @@
+Reactivity 
+----------
+
+example.js
+----------
+let cost = 200
+let qty = 2
+let total = cost * qty
+
+console.log(`The total amount is ${total}`) // Logs: The total amount is 400
+
+cost = 210
+
+console.log(`The total amount is ${total}`) // Logs: The total amount is 400 (total doesn't get updated.)
+______________________________________________
+
+let cost = 200
+let qty = 2
+let total = cost * qty
+
+const computeTotal = () => total = cost * qty
+computeTotal()
+...
+_____________________________________________
+
+Vue 2 <------------ object.defineProperty()
+
+Object.defineProperty()
+-----------------------
+The Object.defineProperty() static method defines a new property directly on an object,
+or modifies an existing property on an object, and returns the object.
+
+const user = {}
+Object.defineProperty(user, 'username', {
+  value: 'rezamazaheri',
+  writable: false
+})
+
+user.username = 'mazaherireza' 
+// Throws an error in strict mode
+
+Syntax
+---------------
+JS
+---------------
+Object.defineProperty(obj, prop, descriptor)
+
+Parameters
+----------
+obj
+The object on which to define the property.
+
+prop
+A string or Symbol specifying the key of the property to be defined or modified.
+
+...
+The descriptor for the property being defined or modified.
+
+Vue 3 <------------ Proxy objects
+
+... wrapper
+
+Proxy
+-----
+The proxy object, enables you to create a proxy for another object, which can intercept and redefine 
+fundamental operations for that object.
+
+The proxy object allows you to create an object that can be used in place of the original object,
+but which may redefine fundamental Object operations like getting, setting, and defining properties.
+
+You create a Proxy with 2 parameters:
+
+target: the original object which you want to proxy.
+handler: an object that defines which operations will be intercepted and how to redefine intercepted operations.
+
+To customize the proxy, we define functions on the handler object:
+ 
+Handler functions are sometimes called traps, presumably because they trap calls to the target object.
+
+Proxeis are often used with the Reflext object, ...
+----------------------------------------------------
+
+To create a proxy, you'll need to pass 2 parameters:
+target: the data object
+handler: the object that defines the operations you want to intercept
+
+const target = {
+  position = 'C++ Developer'
+}
+
+const handler = {
+  get(target, prop, receiver) {
+    return target[prop]
+  }
+  set(target, key, value, receiver) {
+    return target[key] = value
+  }
+}
+
+const proxy = new Proxy(target, handler)
+
+console.log(proxy.position)
+console.log(proxy.position = 'Frontend Developer')
+
+-------------------
+
+const target = {
+  position = 'C++ Developer'
+}
+
+const handler = {
+  get(target, prop, receiver) {
+    return Reflect.get(target, prop, receiver)
+  },
+  set(target, key, value, receiver) {
+    return Reflect.set(target, key, value, receiver)
+  }
+}
+
+const proxy = new Proxy(target, handler)
+--------------------
+
+To see when data is accessed or changed, we can add 3 functions:
+
+track: lets us know when someone accessed data
+watch: informs us when someone set the prop of the object
+trigger: informs us when any data is changed in the object
