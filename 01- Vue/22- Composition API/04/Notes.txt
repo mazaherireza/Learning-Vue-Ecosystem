@@ -1,0 +1,15 @@
+data, method, computed, watch <----------------- *
+---------------
+export default {
+  import { ref } from 'vue'
+  setup() {
+    <------------------- We don't have access to this here.
+    let name = 'Reza'
+    const reactiveName = ref('Reza')
+    return {
+      name
+    }
+  }
+}
+
+RefImp {}
