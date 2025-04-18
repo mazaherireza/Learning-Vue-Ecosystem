@@ -1,0 +1,65 @@
+Composable Functions
+____________________
+...
+setup() {
+  ...
+  const counter = ref(0)
+  increment = () => { counter.value++ }
+  ...
+}
+
+composables/useCounter.ts
+----------
+...
+export const useCounter = () => {
+  const counter = ref(0)
+  const increment = () => { counter.value++ }
+  return {
+    counter,
+    increment
+  }
+}
+
+TheHome.vue
+------------
+...
+import { useCounter } from '../composables/useCounter'
+...
+  setup() {
+    const { counter, increment } = useCounter()
+    ...
+  }
+_____________
+
+useCounter.ts
+------------
+export default function() {
+
+}
+----
+
+import useCounter from '../composables/useCounter'
+______________
+
+composables/useCounter.ts
+----------
+...
+export const useCounter = step => {
+  const counter = ref(0)
+  const increment = () => { counter.value += step.value }
+  return {
+    counter,
+    increment
+  }
+}
+
+TheHome.vue
+------------
+...
+import { useCounter } from '../composables/useCounter'
+...
+  setup() {
+    const step = ref(5)
+    const { counter, increment } = useCounter(step)
+    ...
+  }
