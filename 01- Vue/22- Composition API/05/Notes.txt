@@ -1,0 +1,9 @@
+import { reactive } from 'vue'
+....
+
+const name = reactive({
+  firstname: 'Reza',
+  lastname: 'Mazaheri'
+})
+
+Proxy { firstname: 'Reza', lastname: 'Mazaheri' }
