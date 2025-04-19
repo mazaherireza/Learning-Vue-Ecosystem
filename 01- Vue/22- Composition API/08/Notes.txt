@@ -1,0 +1,23 @@
+props
+-----
+App.vue
+-------
+<TheIntro :name="name" />
+...
+setup() {
+  const name = ref('Reza')
+  return {
+    name
+  }
+}
+_____________________________
+TheIntro.vue
+------------
+...
+export default {
+  ...
+  setup(props) {
+    console.log(props) // <-------- Proxy { name: 'Reza' }
+    return {}
+  }
+}
