@@ -1,0 +1,38 @@
+...
+setup(_, context) {
+  console.log(context) <------------- *
+  return {}
+}
+
+attrs: (...)
+emit: (...)
+expose: exposed => {...}
+props: (...)
+slots: (...)
+______________________________________
+
+App.vue
+------
+...
+<TheIntro :name="name" @update="update">
+...
+
+const update = (name) => {
+  name.value = name
+}
+
+------------------------------------------------------
+<p>{{ name }}</p>
+<button @click="updateName">Update Name</button>
+...
+export default {
+  props: ['name'],
+  setup(_ , { emit }) {
+  const updateName = () => {
+    emit('update', 'Reza')
+  }
+    return {
+      updateName
+    }
+  }
+}
