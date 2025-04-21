@@ -1,0 +1,24 @@
+v3.vuejs.org
+-------------
+
+Lifecycle Hooks
+---------------
+
+Options API               Hook inside setup
+-------------------------------------------
+beforeCreate              Not needed
+created                   Not needed
+
+Template Refs
+-------------
+App.vue
+------
+<div ref="root">Division Element</div>
+...
+setup() {
+  ...
+  const root = ref(null)
+  onMounted(() => {
+    console.log(root.value)
+  }) 
+}
