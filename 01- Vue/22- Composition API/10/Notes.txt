@@ -1,0 +1,38 @@
+provide, inject
+---------------
+
+App.vue
+-------
+...
+import { ref, provide } from 'vue'
+...
+export default {
+  ...
+  setup() {
+    const name = ref('Reza')
+    provide('name', name)
+  }
+}
+
+const info = reactive({
+  name: 'Reza'
+})
+
+
+TheIntro.vue
+------------
+...
+setup() {
+  ...
+  const name = inject('name')
+  console.log(name) // RefImpl ...
+  return {
+    name
+  }
+}
+
+const info = inject('info')
+console.log(name) // Proxy { name: 'Reza' }
+return {
+  info
+}
