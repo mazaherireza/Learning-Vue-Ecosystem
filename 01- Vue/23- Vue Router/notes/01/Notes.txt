@@ -1,0 +1,35 @@
+Vue Router
+----------
+
+Introduction
+
+Single Page Application (SPA) <------------------------ *
+
+  index.html
+                           SPA
+Template 1
+
+Template 2             Template Views
+
+Template 3
+
+No page refresh on request <------------------------ *
+_______________________________
+
+Tranditional Web Application
+
+
+                             Page 1
+                         
+     Page                    Page 2
+
+
+Whole page refresh on request <---------------------------- *
+
+
+                             SPA Lifecycle
+
+                   Initial GET Request ---->
+Client                                                          Server
+                   AJAX ---------->
+                   <----------- JSON
