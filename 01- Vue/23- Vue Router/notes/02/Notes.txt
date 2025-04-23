@@ -1,0 +1,89 @@
+Vue Router 
+__________
+
+v3.vuejs.org
+next.router.vuejs.org
+
+Installation
+------------
+
+npm
+---
+npm install vue-router@4
+
+package.json
+------------
+...
+"dependencies": { <---------------------------------- *
+  ...
+  "vue-router": "^4.0.3"
+}
+
+npm run serve
+
+Use the RouterLink component for navigation.
+Specify the link by passing the "to" prop.
+... will render an <a> tag with the correct href attribute.
+
+Route outlet
+Component matched by the route, will render here.
+RouterView
+__________________________________
+1. Define route components. (these can be imported from other files)
+
+2. Define some routes.
+Each route should map to a component. <------------------- *
+
+{ ..., component: TheHome }
+
+3. Create the router instance and pass the routes option.
+... let's keep it simple for now.
+
+const router = createRouter( ... )
+
+4. Provide the history implementation to use.
+
+(5. Create and mount the root instance.)
+... to make the whole app router-aware.
+
+main.js
+-------
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router.js'
+
+const app = createApp(App)
+app.use(router)
+app.mount('#app') <-------------------------- *
+
+router.js 
+---------
+import { createRouter, createWebHistory } from 'vue-router'
+...
+
+const routes = [
+  { path: '/', component: TheHome },
+  { path: '/users', component: TheUser },
+  ...
+]
+
+export const router = createRouter({
+  history: createWebHistory(),
+  routes
+})
+
+App.vue
+-------
+...
+<RouterLink to="/">Home</RouterLink>
+<RouterLink to="/users">Users</RouterLink>
+..
+<RouterView></RouterView>
+
+Different History Modes
+-----------------------
+The history option when creating the router instance allows us to choose among different history modes.
+
+Hash/HTML5 Mode
+
+Hash Mode <--------------- ... bad impact in SEO.
