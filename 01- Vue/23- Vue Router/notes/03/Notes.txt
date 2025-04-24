@@ -1,0 +1,114 @@
+...
+<RouterLink to="/users">Users</RouterLink> <-------------- Link
+...
+
+... in script section.
+
+TheUsers.vue
+------------
+<template>
+  ...
+  <button @click="goToHome">Home</button>
+  ...
+<script>
+import { useRouter } from 'vue-router' <------------------------- *
+...
+  const router = useRouter()
+  const goToHome = () => {
+    router.push('/users') <----------------------- *
+  }
+}
+
+.....ir/restaurant/Atp_10011002?name=Chelo Paz&code=9588667788#Something
+
+Parameter, Query String, Fragment
+
+___________________________________________________________________________
+___________________________________________________________________________
+
+9 Parts of a URL You Should Know
+--------------------------------
+
+... at least 3 of these 9 parts.
+
+... anatomy of a URL (Uniform Resource Locator)
+
+The 9 parts of a URL are the protocol (or scheme), subdomain, domain name, top level domain, port, path, query, 
+parameters and fragment.
+
+https://video.google.co.uk:80/videoplay/?docid=7500550077&hl=en#00ha9988778877
+
+..., which stands for hypertext transfer protocol, tells it that the page is to be displayed in hypertext format (HTML).
+
+The most common subdomain is 'www'
+... the type of data that is being requested form the server is ... videos
+
+https://vidoes/google.co.uk                             video <----------------- subdomain
+
+The domain name
+... is the actual name of the website.
+
+facebook, Google
+
+The top level domain (TLD)
+... domain extension
+
+.com, .net
+
+The port 
+... is a reserved channel used for specific purpose.
+
+The default port for standard HTTP servers is 80, whereas secure websites use HTTPS which requires port number 443.
+
+The path
+used to show which directory on server stores the resources (files, videos, audio, etc.) that are being requested.
+
+Nowadays,...
+Instead, paths are used to identify a route in the navigational structure of the website.
+
+The query
+
+The ? tells the browser that a query is being performed against a database.
+
+The parameters
+are the actual values being queried when a search is performed.
+The parameter can be search term, a number, an encrypted value or any other data that can be found on the DB.
+
+Finally, the Fragment,
+is an optional component of a web address that is preceded by a # that directs to a secondary resources,
+which can be a portion of a page like a footer or sidebar.
+
+... the id attribute of an HTML element.
+
+___________________________________________________________________________
+___________________________________________________________________________
+
+[Vue Router warn]: No match found for location with path "/users/1001" <------------------- *
+
+router.js
+---------
+...
+const routes = [
+  ...,
+  {
+    path: '/users',
+    component: TheUsers
+  },
+  {
+     path: '/users/:id'
+     component: TheUsers
+  },
+  {
+     path: '/users/:username/:id'
+     component: TheUsers
+  }
+]
+
+TheUsers.vue
+------------
+...
+import { useRoute } from 'vue-router'
+...
+  const route = useRoute()
+
+  console.log(route.params) <------ 192.168.1.103:8080/users/rezamazaheri/1001, { username: "rezamazaheri", id: "1001" } <---- *
