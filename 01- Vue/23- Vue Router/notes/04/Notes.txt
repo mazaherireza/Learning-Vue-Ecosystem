@@ -1,0 +1,42 @@
+router.js
+---------
+...
+const routes = [
+  {
+    path: '/',
+    component: TheHome
+  },
+  {
+    path: '/users',
+    component: TheUsers
+  },
+  {
+    path: '/users/:id',
+    component: UserCard
+  },
+  {
+    path: 'users/create',
+    component: UserForm
+  },
+] 
+...
+{
+  path: '/users',
+  component: TheUsers,
+  children: [
+    {
+      path: ':id',
+      component: UserCard
+    },
+    {
+      path: 'create',
+      component: UserForm
+    },
+}
+______________________________________________________
+
+TheUsers.vue
+------------
+...
+<RouterView></RouterView>
+...
