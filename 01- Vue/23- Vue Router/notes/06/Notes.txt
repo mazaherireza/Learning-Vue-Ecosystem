@@ -1,0 +1,26 @@
+<style>
+.router-link-active { <----------------- .../book & .../book/ate_1001
+
+}
+
+.router-link-exact-active { <--------------- .../book
+
+}
+...
+
+<RouterLink active-class="active" exact-active-class="extact" :to="{ name: 'users'}">Users</RouterLink>
+
+-------------------------------
+Catch all / 404 Not found Route
+
+router.js
+---------
+...
+const routes = [
+  ...,
+  {
+    path: '/:pathMatch(.*)*', <------------------------------ *
+    name: 'NotFound',
+    component: NotFound
+  }
+]
