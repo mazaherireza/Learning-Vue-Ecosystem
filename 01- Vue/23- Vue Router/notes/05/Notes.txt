@@ -1,0 +1,37 @@
+router.js
+---------
+...
+const routes = [
+  {
+    path: '/users',
+    name: 'users',
+    component: TheUsers,
+    children: [
+      ...
+    ]
+  }
+]
+
+...
+
+Home.vue
+---------
+...
+<RouterLink :to="{ name: 'showUser', params: { id: 1001 } }">Show User</RouterLink> <------------------ *
+
+<script>
+...
+
+f = () => {
+  router.push({
+    name: 'userCard',
+    params: {
+      id: 1001
+    },
+    query: {
+      firstname: 'Reza',
+      lastname: 'Mazaheri'
+    },
+    hash: '#profile'
+  })
+}
