@@ -1,0 +1,34 @@
+Navigation Guards
+------------------
+... middleware
+
+Global
+
+router.beforeEach((to, from, next) => { <--------------------------------------- "Router"
+  if(to.name === 'users') { <---------------------------------- *
+    // next(false)
+    next({
+      name: 'home'
+    })
+  } else {
+    next()
+  }
+})
+
+Local
+-------
+...
+  children: [
+    ...
+  ],
+  beforeEnter: (to, from, next) => { <-------------------------------- "beforeENTER"
+    next()
+  }
+
+In component
+-------------
+
+TheUser.vue
+-----------
+...
+beforeRouteEnter() <--------------------------- *
